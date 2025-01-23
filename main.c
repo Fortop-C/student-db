@@ -18,44 +18,31 @@ int main() {
 	struct student *data;
 	int err = 0;
 	
-	setvbuf(stdout, NULL, _IONBF, 0);
-	
 	printf("Do you want to see existing student data?(1/0)\n");
-	fflush(stdout);
 	scanf("%d", &yn);
-	while (getchar() != '\n');
-	
 	if (yn == 1) {
 	          printf("Reading %s\n", file);
-	          fflush(stdout);
 	          data = data_read(file, &c);
 	          if (!data)
 	          	printf("Error reading database: %m\n");
 	          else {
 	          	printf("There are %d students in database:\n", c);
-	          	fflush(stdout);
 	          	data_output(c, data);
 	          }
 	}
 	
-	printf("Please enter number of students:\n ");
-	fflush(stdout);
+	printf("Please enter number of students:\n");
 	scanf("%d", &c);
-	while (getchar() != '\n');
 	
 	s = (struct student *)malloc(sizeof(struct student) * c);
 	
 	data_input(c, s);
 	data_output(c, s);
 	
-	printf("Do you want to save the data(1/0)?");
-	fflush(stdout);
+	printf("Do you want to save the data(1/0)?\n");
 	scanf("%d", &yn);
-	while (getchar() != '\n');
-	
 	if (yn == 1){
 		printf("Saving data to %s ...\n", file);
-		fflush(stdout);
 		err = data_save(c, s, file);
 		if (err){
 			printf("Error saving data: %d(%m)\n", err);
