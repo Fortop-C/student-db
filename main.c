@@ -10,7 +10,7 @@ int data_save(int count, struct student *s, const char *file);
 struct student *data_read(const char *file, int *count);
 
 int main() {
-    setvbuf(stdout, NULL, _IONBF, 0); // Отключить буферизацию stdout
+    setvbuf(stdout, NULL, _IONBF, 0);
 
     int c = 0;
     int yn = 0;
@@ -18,7 +18,7 @@ int main() {
     struct student *s;
     struct student *data;
     int err = 0;
-    char input[16]; // Буфер для ввода строки
+    char input[16];
 
     printf("Do you want to see existing student data? (1/0)\n");
     fflush(stdout);
